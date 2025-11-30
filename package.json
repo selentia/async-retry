@@ -1,0 +1,75 @@
+{
+  "name": "@selentia/async-retry",
+  "version": "1.0.0",
+  "description": "Zero-runtime-deps async retry engine with backoff, full jitter, and Retry-After support (Node + Browser).",
+  "keywords": [
+    "retry",
+    "async",
+    "promise",
+    "backoff",
+    "exponential-backoff",
+    "jitter",
+    "full-jitter",
+    "retry-after",
+    "abortsignal",
+    "signal",
+    "http",
+    "fetch",
+    "axios",
+    "network",
+    "utility",
+    "node",
+    "browser"
+  ],
+  "license": "MIT",
+  "author": "selentia",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist/",
+    "LICENSE",
+    "README.md",
+    "README.KO.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/selentia/async-retry.git"
+  },
+  "bugs": {
+    "url": "https://github.com/selentia/async-retry/issues"
+  },
+  "homepage": "https://github.com/selentia/async-retry#readme",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:cov": "vitest run --coverage",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run clean && npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@vitest/coverage-v8": "^2.1.9",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
